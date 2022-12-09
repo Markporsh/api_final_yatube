@@ -68,7 +68,25 @@ python manage.py runserver
     "author": "Mark",
     "image": null,
     "group": 1,
-    "pub_date": "2022-05-08T11:48:48.782688Z"
+    "pub_date": "2022-12-08T11:48:48.782688Z"
+}
+```
+```
+### Запрос с использованием токена пользователя Mark для публикации комментария:
+```
+    [POST].../api/v1/posts/2/comments/
+    {
+    "text": "First", 
+    }
+```
+### Ответ:
+```
+{
+    "id": 1,
+    "author": "Mark",
+    "text": "First",
+    "created": "2022-12-09T20:21:17.293550Z",
+    "post": 2
 }
 ```
 ### Запрос для просмотра групп анонимным пользователем:
@@ -89,5 +107,20 @@ python manage.py runserver
         "title": "Котолюбители",
         "slug": "catslovers",
         "description": "Мур"
+    }
+
+### Запрос с использованием токена пользователя Mark для подписки на пользователя:
+```
+    [GET].../api/v1/follow/
+```
+### Пример ответа:
+```
+    [
+    {
+        "following": "Mark2222"
+    },
+    {
+        "user": "Mark",
+        "following": "Mark2222"
     }
 ]

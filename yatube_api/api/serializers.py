@@ -44,6 +44,13 @@ class FollowSerializer(serializers.ModelSerializer):
             )
         ]
 
+    def validate(self, data):
+        if data['following'] != self.context['request'].user:
+            return data
+        raise serializers.ValidationError(
+            'Попытка подписаться на самого себя!'
+        )
+
 
 class CommentSerializer(serializers.ModelSerializer):
     author = serializers.SlugRelatedField(
