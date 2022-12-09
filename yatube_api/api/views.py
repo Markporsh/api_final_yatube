@@ -1,5 +1,4 @@
 from django.shortcuts import get_object_or_404
-from djoser import serializers
 from posts.models import Post, Group
 from rest_framework import viewsets, filters
 from rest_framework.permissions import IsAuthenticated, AllowAny
